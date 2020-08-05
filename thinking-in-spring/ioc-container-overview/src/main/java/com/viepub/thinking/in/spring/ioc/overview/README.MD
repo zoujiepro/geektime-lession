@@ -60,3 +60,5 @@ ApplicationContext除了IoC容器角色，还有提供：
 6. 注解(Annotations)
 7. Environment抽象(Environment Abstraction)
 :配置(profile)和外部化配置，外部化配置主要解决占位符问题和一些相关配置以及实时读取一些阈值开关。
+
+#
