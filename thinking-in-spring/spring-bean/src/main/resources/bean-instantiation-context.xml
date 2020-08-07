@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--静态方法实例化-->
+    <bean id="user-by-static" class="com.viepub.thinking.in.spring.ioc.overview.domain.User"
+          factory-method="createUser"/>
+
+    <!--实例化(bean)方法实例化-->
+    <bean id="user-by-method" class="com.viepub.thinking.in.spring.ioc.overview.domain.User"
+          factory-method="createUser" factory-bean="userFactory"/>
+    <bean id="userFactory" class="com.viepub.thinking.in.spring.bean.factory.DefaultUserFactory"/>
+
+    <!--factoryBean方式实例化(包含初始化)-->
+    <bean id="user-by-factory-bean" class="com.viepub.thinking.in.spring.bean.factory.UserFactoryBean"/>
+</beans>

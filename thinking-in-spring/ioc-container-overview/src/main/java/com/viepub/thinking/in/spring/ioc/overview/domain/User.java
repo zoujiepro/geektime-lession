@@ -33,4 +33,8 @@ public class User {
                 "{ id : " + this.id +
                 ", name : " + this.name + "}";
     }
+
+    public static User createUser(){
+        return new User();
+    }
 }

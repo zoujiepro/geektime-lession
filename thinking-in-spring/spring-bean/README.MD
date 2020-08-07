@@ -36,4 +36,24 @@ BeanDefinition是Spring Framework中定义Bean的配置元信息接口，包含�
      &nbsp;&nbsp;&nbsp;&nbsp;1.3.2 非命名方式：BeanDefinitionReaderUtils#registryWithGerneratedName(AbstractBeanDefinition,BeanDefinitionRegistry)
         
      &nbsp;&nbsp;&nbsp;&nbsp;1.3.3 配置类方式：AnnotatedBeanDefinitionReader#registry(Class)
-2. 
+
+2. Bean实例化(instantiation)
+
+   2.1常规方式
+   
+   &nbsp;&nbsp;&nbsp;&nbsp;2.1.1 通过构造器(配置元信息：xml、java注解和javaAPI)
+   
+   &nbsp;&nbsp;&nbsp;&nbsp;2.1.2 通过静态工厂方法(配置元信息：xml、和javaAPI)
+   
+   &nbsp;&nbsp;&nbsp;&nbsp;2.1.3 通过Bean工厂方法(配置元信息：xml、和javaAPI)
+   
+   &nbsp;&nbsp;&nbsp;&nbsp;2.1.4 通过FactoryBean(配置元信息：xml、java注解和javaAPI)
+   
+   2.2特殊方式
+   
+   &nbsp;&nbsp;&nbsp;&nbsp;2.2.1 通过ServiceLoaderFactoryBean(配置元信息：xml、java注解和javaAPI)
+   
+   &nbsp;&nbsp;&nbsp;&nbsp;2.2.2 通过AutowireCapableBeanFactory#createBean(java.lang.class,int,boolean)
+   
+   &nbsp;&nbsp;&nbsp;&nbsp;2.2.3 通过BeanDefinitionRegistry#registryBeanDefinition(String,BeanDefinition)
+   
