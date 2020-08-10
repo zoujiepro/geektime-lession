@@ -1,8 +1,11 @@
 package com.viepub.thinking.in.spring.bean.definition;
 
+import com.viepub.thinking.in.spring.bean.factory.DefaultUserFactory;
 import com.viepub.thinking.in.spring.bean.factory.UserFactory;
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.beans.factory.serviceloader.ServiceLoaderFactoryBean;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Iterator;
@@ -24,17 +27,35 @@ public class SpecialBeanInstantiationDemo {
 
     public static void main(String[] args) {
 
-        BeanFactory beanFactory = new ClassPathXmlApplicationContext(path);
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext(path);
+
+        AutowireCapableBeanFactory beanFactory = applicationContext.getAutowireCapableBeanFactory();
 
 
+//        serviceLoaderFactoryBeanDemo(applicationContext);
+
+//        serviceLoaderDemo();
+
+        DefaultUserFactory bean = beanFactory.createBean(DefaultUserFactory.class);
+        System.out.println(bean);
+    }
+
+    /**
+     * spring 适配 jdk serviceLoader
+     * @see ServiceLoaderFactoryBean
+     * @param beanFactory
+     */
+    private static void serviceLoaderFactoryBeanDemo(BeanFactory beanFactory) {
         ServiceLoader<UserFactory> serviceLoader = beanFactory.getBean("userFactoryServiceLoader",ServiceLoader.class);
 
         displayServiceLoader(serviceLoader);
-
-//        serviceLoaderDemo();
     }
 
 
+    /**
+     * jdk 实现IOC方式
+     * @see ServiceLoader
+     */
     public static void serviceLoaderDemo(){
         ServiceLoader<UserFactory> load = ServiceLoader.load(UserFactory.class);
         displayServiceLoader(load);
