@@ -56,4 +56,13 @@ BeanDefinition是Spring Framework中定义Bean的配置元信息接口，包含�
    &nbsp;&nbsp;&nbsp;&nbsp;2.2.2 通过AutowireCapableBeanFactory#createBean(java.lang.class,int,boolean)
    
    &nbsp;&nbsp;&nbsp;&nbsp;2.2.3 通过BeanDefinitionRegistry#registryBeanDefinition(String,BeanDefinition)
+
+3. Bean的初始化
    
+   3.1 JDK @PostConstruct
+   
+   3.2 实现 Spring InitializingBean#afterPropertiesSet
+   
+   3.3 自定义初始化方法 initMethod  如通过注解：@Bean(initMethod = "initUserFactory")
+   `@see org.springframework.beans.factory.support.AbstractBeanDefinition.setInitMethodName`
+    
