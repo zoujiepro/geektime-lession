@@ -5,6 +5,7 @@ import com.viepub.thinking.in.spring.bean.factory.UserFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Lazy;
 
 /**
  * @Descrption :
@@ -26,10 +27,11 @@ public class BeanInitializationDemo {
 //        System.out.println(userFactory);
 
         applicationContext.close();
+        System.out.println("spring 关闭");
     }
 
 
-    @Bean(initMethod = "initUserFactory")
+    @Bean(initMethod = "initUserFactory",destroyMethod = "doDestroy")
     public UserFactory userFactory(){
         return new DefaultUserFactory();
     }

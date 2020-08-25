@@ -66,3 +66,24 @@ BeanDefinition是Spring Framework中定义Bean的配置元信息接口，包含�
    3.3 自定义初始化方法 initMethod  如通过注解：@Bean(initMethod = "initUserFactory")
    `@see org.springframework.beans.factory.support.AbstractBeanDefinition.setInitMethodName`
     
+4. Bean延迟初始化
+   
+   4.1 xml配置 <bean lazy-init=true../>
+   
+   4.2 Java注解：@lazy()
+   
+5. 销毁spring bean
+
+   5.1 @PreDestroy 标注方法
+   `@see org.springframework.context.annotation.CommonAnnotationBeanPostProcessor`
+   
+   5.2 实现DisposableBean接口的destroy()方法
+   
+   5.3 自定义销毁方法
+       
+       5.3.1 xml配置：<bean destroy="" ../>
+       
+       5.3.2 java注解：@Bean(destroy="")
+       
+       5.3.3 JavaAPI: AbstractBeanDefinition#setDestroyMethodName(String)
+       
