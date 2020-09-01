@@ -84,3 +84,30 @@ HierarchicalBeanFactory<--ConfigurableBeanFactory<--ConfigurableListableBeanFact
 
 5. BeanDefinitionStoreException    当BeanDefinition配置元信息非法时  场景：xml配置资源无法打开时
 
+
+
+##依赖注入的模式
+
+1. 手动模式-配置或者编程的方式，提前安排注入规则
+
+    1.1 xml资源配置元信息
+    
+    1.2 java注解配置元信息
+    
+    1.3 API配置元信息
+    
+2. 自动模式-实现方提供依赖自动关联的方式，按照内建的注入规则
+
+    2.1 Autowiring(自动绑定)
+    
+##依赖注入的类型
+
+1. Setter方法   配置元数据举例：<property name="xxx" ref="bean"/>
+
+2. 构造器  <constructor-arg name="user" ref=""bean"/>
+
+3. 字段   @Autowire User user;
+
+4. 方法   @Autowire public void user(User user){...}
+
+5. 接口回调     class MyBean implements BeanFactoryAware{...}
